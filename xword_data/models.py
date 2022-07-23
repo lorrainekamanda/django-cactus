@@ -19,3 +19,14 @@ class Entry(models.Model):
 
     def __str__(self):
         return str(self.entry_text)
+
+
+class Clue(models.Model):
+
+    entry = models.ForeignKey(Entry,on_delete = models.CASCADE)
+    puzzle = models.ForeignKey(Puzzle,on_delete = models.CASCADE)
+    clue_text= models.CharField(max_length=512, blank=False)
+    theme = models.BooleanField(default = False,blank=False)
+
+    def __str__(self):
+        return str(self.entry_text)
